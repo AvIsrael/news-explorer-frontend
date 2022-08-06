@@ -1,0 +1,96 @@
+.button {
+    box-sizing: border-box;
+    transition: all .25s linear;
+    border: none;
+    cursor: pointer;
+    padding: 20px 56px;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.button_search {
+    border-radius: 100px;
+    box-shadow: 0 5px 15px rgba(14, 26, 57, .2);
+    background-color: #2F71E5;
+    color: #fff;
+}
+
+.button_search:hover {
+    background-color: #347EFF;
+}
+
+.button_search:active {
+    background-color: #2A65CC;
+}
+
+.button_search:disabled {
+    box-shadow: none;
+    background-color: #E6E8EB;
+    cursor: not-allowed;
+    color: #BEBEBE;
+}
+
+.button_cards {
+    border-radius: 80px;
+    background-color: #fff;
+    color: #1A1B22;
+}
+
+.button_cards:hover {
+    background-color: #E8E8E8;
+}
+
+.button_cards:active {
+    background-color: #BEBEBE;
+}
+
+.button_logged-in,
+.button_logged-out {
+    border: 1px solid;
+    border-radius: 100px;
+    background-color: transparent;
+    padding: 12px 18px;
+}
+
+
+.button_logged-in {
+    border-color: #fff;
+    color: #fff;
+}
+
+.button_logged-in:hover {
+    border-color: #BEBEBE;
+}
+
+.button_logged-out {
+    border-color: #BEBEBE;
+    color: #1A1B22;
+}
+
+.button_logged-out:hover {
+    border-color: #1A1B22;
+}
+
+@media (max-width: 1024px) {
+    .button {
+        padding: 16px 52px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .button_logged-in,
+    .button_logged-out {
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .button_logged-in,
+    .button_logged-out {
+        padding: 16px;
+        font-size: 18px;
+    }
+}

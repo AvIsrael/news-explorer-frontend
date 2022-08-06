@@ -1,0 +1,36 @@
+.registration-popup {
+    padding: 43px 36px 51px;
+}
+
+.registration-popup__title {
+    max-width: 358px;
+    margin: 0 0 14px;
+    color: #1A1B22;
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 28px;
+}
+
+.registration-popup__switch-button {
+    transition: all .25s linear;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    line-height: 22px;
+    color: #2F71E5;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.registration-popup__switch-button:hover {
+    opacity: .65;
+}
+
+@media (max-width: 640px) {
+    .registration-popup {
+        padding: 43px 16px 51px;
+    }
+}

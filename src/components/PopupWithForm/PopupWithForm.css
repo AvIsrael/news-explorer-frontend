@@ -1,0 +1,106 @@
+.popup-with-form__title {
+    margin: 0 0 22px;
+    line-height: 28px;
+    color: #1A1B22;
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.popup-with-form__input-group {
+    display: block;
+    margin-bottom: 16px;
+    min-height: 65px;
+}
+
+.popup-with-form__input-group:last-of-type {
+    margin-bottom: 24px;
+}
+
+.popup-with-form__input-label {
+    display: block;
+    margin-bottom: 8px;
+    line-height: 15px;
+    color: #2F71E5;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.popup-with-form__input {
+    display: block;
+    transition: all .25s linear;
+    margin-bottom: 3px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    padding: 0 0 10px;
+    width: 100%;
+    color: #1A1B22;
+    line-height: 17px;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.popup-with-form__input:focus {
+    outline: none;
+    border-color: #000;
+}
+
+.popup-with-form__input::placeholder {
+    color: rgba(26, 27, 34, .2);
+}
+
+.popup-with-form__error {
+    margin: 0;
+    line-height: 15px;
+    color: #FF0000;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.popup-with-form__error_general {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.popup-with-form__submit-button {
+    margin-bottom: 16px;
+    width: 100%;
+    min-height: 64px;
+}
+
+.popup-with-form__more-options {
+    margin: 0;
+    text-align: center;
+    line-height: 17px;
+    color: #1A1B22;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.popup-with-form__switch-button {
+    transition: all .25s linear;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0;
+    line-height: 17px;
+    color: #2F71E5;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+
+}
+
+.popup-with-form__switch-button:hover {
+    opacity: .65;
+}
+
+@media (max-width: 640px) {
+    .popup-with-form__title {
+        margin-bottom: 18px;
+    }
+}
