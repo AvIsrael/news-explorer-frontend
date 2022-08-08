@@ -6,7 +6,7 @@ import githubIcon from '../../images/footer-github-icon.svg';
 
 const Footer = () => (
   <footer className="footer">
-    <span
+    <p
       className="footer__copyright"
     >
       &copy;
@@ -14,7 +14,7 @@ const Footer = () => (
       {new Date().getFullYear()}
       {' '}
       News Explorer, Powered by News API
-    </span>
+    </p>
     <ul className="footer__content footer__content_type_links">
       <li>
         <Link

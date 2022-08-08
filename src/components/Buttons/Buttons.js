@@ -7,7 +7,7 @@ const Buttons = ({ children, pattern, ...props }) => (
     {...props}
     className={classNames(
       'button',
-      `button_${pattern}`,
+      `button-${pattern}`,
       props.className,
     )}
   >

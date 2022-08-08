@@ -99,6 +99,7 @@
 
 .news-card__action-button_type_bookmark {
     background-image: url('../../images/bookmark-hover.svg');
+    background-size: auto;
 }
 
 .news-card__action-button_type_bookmark-active {
@@ -144,7 +145,7 @@
     letter-spacing: .4px;
     white-space: nowrap;
     color: #B6BCBF;
-    font-family: Roboto Slab, sans-serif;
+    font-family: Roboto-slab, sans-serif;
     font-size: 16px;
     font-weight: bold;
 }
@@ -192,11 +193,17 @@
     overflow: hidden;
     line-height: 30px;
     color: #1A1B22;
-    font-family: Roboto Slab, sans-serif;
+    font-family: Roboto-slab, sans-serif;
     font-size: 26px;
     font-weight: normal;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+}
+
+@media (max-width: 740px) {
+    .news-card {
+        height: 440px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -214,10 +221,9 @@
         margin-bottom: 14px;
         min-height: auto;
         -webkit-line-clamp: 2;
+        font-size: 22px;
     }
 }
-
-
 
 @media (max-width: 1024px) {
     .news-card__text {
@@ -225,13 +231,6 @@
         -webkit-line-clamp: 4;
     }
 }
-
-@media (max-width: 740px) {
-    .news-card__text {
-        margin-bottom: 30px;
-    }
-}
-
 
 @media (max-width: 1280px) {
     .news-card__keyword {

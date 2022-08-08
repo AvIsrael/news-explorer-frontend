@@ -1,42 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import classNames from 'classnames';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import Buttons from '../Buttons/Buttons';
 
 const PopupSignin = ({
-  isVisible, closePopup, onFormSubmit, switchToSignUp,
+  isVisible,
+  closePopup,
+  onFormSubmit,
+  switchToSignUp,
 }) => {
-  const [emailValue, setEmailValue] = useState('test@email.com');
-  const [passwordValue, setPasswordValue] = useState('12345678');
+  const [emailValue, setEmailValue] = useState('');
+  const [passwordValue, setPasswordValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const handleEmailChange = (event) => setEmailValue(event.target.value);
   const handlePasswordChange = (event) => setPasswordValue(event.target.value);
   const handleFormSubmit = (event) => {
     event.preventDefault();
     setIsLoading(true);
-    onFormSubmit({
-      email: emailValue,
-      password: passwordValue,
-    }, () => setIsLoading(false));
+    onFormSubmit(
+      {
+        email: emailValue,
+        password: passwordValue,
+      },
+      () => setIsLoading(false),
+    );
   };
 
-  useEffect(() => {
-    setEmailValue('test@email.com');
-    setPasswordValue('12345678');
-  }, [isVisible]);
-
   return (
-    <PopupWithForm
-      isVisible={isVisible}
-      closePopup={closePopup}
-    >
-      <h2 className="popup-with-form__title">
-        Sign in
-      </h2>
+    <PopupWithForm isVisible={isVisible} closePopup={closePopup}>
+      <h2 className="popup-with-form__title">Sign in</h2>
       <form onSubmit={handleFormSubmit}>
         <label htmlFor="signin-email" className="popup-with-form__input-group">
-          <span className="popup-with-form__input-label">
-            Email
-          </span>
+          <span className="popup-with-form__input-label">Email</span>
           <input
             id="signin-email"
             name="email"
@@ -49,10 +44,11 @@ const PopupSignin = ({
             required
           />
         </label>
-        <label htmlFor="signin-password" className="popup-with-form__input-group">
-          <span className="popup-with-form__input-label">
-            Password
-          </span>
+        <label
+          htmlFor="signin-password"
+          className="popup-with-form__input-group"
+        >
+          <span className="popup-with-form__input-label">Password</span>
           <input
             id="signin-password"
             name="password"
@@ -68,7 +64,12 @@ const PopupSignin = ({
         <Buttons
           type="submit"
           pattern="primary"
-          className="popup-with-form__submit-button"
+          className={classNames(
+            'popup-with-form__submit-button',
+            emailValue && passwordValue
+              ? 'popup-with-form__submit-button_active'
+              : '',
+          )}
           disabled={isLoading}
         >
           {isLoading ? 'Signing in...' : 'Sign in'}

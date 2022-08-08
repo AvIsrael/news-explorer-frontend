@@ -20,13 +20,14 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    max-width: 600px;
 }
 
 .about__title {
     margin: 0;
     line-height: 46px;
     color: #1A1B22;
-    font-family: Roboto Slab, sans-serif;
+    font-family: Roboto-slab, sans-serif;
     font-size: 40px;
     font-weight: normal;
 }
