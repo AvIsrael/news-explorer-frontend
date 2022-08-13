@@ -2,7 +2,7 @@ import './SearchForm.css';
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import Buttons from '../Buttons/Buttons';
-import popupForm from '../../hooks/popupform';
+import useFormAndValidation from '../../hooks/useFormAndValidation';
 
 const SearchForm = ({ lastSearch, onSearchSubmit }) => {
   const {
@@ -12,7 +12,7 @@ const SearchForm = ({ lastSearch, onSearchSubmit }) => {
     handleInputChange,
     resetForm,
     validateFormOnSubmit,
-  } = popupForm();
+  } = useFormAndValidation();
   const [lastError, setLastError] = useState(undefined);
   const handleFormSubmit = (event) => {
     event.preventDefault();

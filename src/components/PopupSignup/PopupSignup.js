@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 import Buttons from '../Buttons/Buttons';
-import popupForm from '../../hooks/popupform';
+import useFormAndValidation from '../../hooks/useFormAndValidation';
 
 const PopupSignup = ({
   isVisible, closePopup, onFormSubmit, switchToSignIn,
@@ -12,7 +12,7 @@ const PopupSignup = ({
     isFormValid,
     handleInputChange,
     resetForm,
-  } = popupForm();
+  } = useFormAndValidation();
   const [isLoading, setIsLoading] = useState(false);
   const [errorResponse, setErrorResponse] = useState(undefined);
   const handleErrorResponse = (err) => {
@@ -104,6 +104,7 @@ const PopupSignup = ({
           </span>
           <input
             id="signup-username"
+            name="username"
             value={formValues.username || ''}
             onChange={handleInputChange}
             className="popup-with-form__input"

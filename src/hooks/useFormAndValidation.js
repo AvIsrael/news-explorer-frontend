@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-const popupForm = () => {
+const useFormAndValidation = () => {
   const [formValues, setFormValues] = useState({});
   const [formErrors, setFormErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
@@ -59,4 +59,4 @@ const popupForm = () => {
   };
 };
 
-export default popupForm;
+export default useFormAndValidation;

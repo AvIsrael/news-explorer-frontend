@@ -20,7 +20,7 @@ const NOTIFICATION_TIME = 3 * 1000;
 const RES_INTERVAL = 7 * 24 * 60 * 60 * 1000;
 const RES_SIZE = 100;
 const API_KEY = '64579af5df1d4305963b5091a4dc1195';
-const MAIN_URL = 'https://avi.news.explorer.students.nomoredomainssbs.ru/';
+const MAIN_URL = 'https://api.avi.news.explorer.students.nomoredomainssbs.ru';
 const NEWS_URL = 'https://nomoreparties.co/news/v2';
 
 export {
