@@ -5,7 +5,9 @@ const popupForm = () => {
   const [formErrors, setFormErrors] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const handleInputChange = (evt) => {
-    const { name, value, validationMessage } = evt;
+    const { target } = evt;
+    const { name, value, validationMessage } = target;
+
     setFormValues({
       ...formValues,
       [name]: value,
@@ -15,7 +17,7 @@ const popupForm = () => {
       [name]: validationMessage,
     });
 
-    setIsFormValid(evt.closest('form').checkValidity());
+    setIsFormValid(target.closest('form').checkValidity());
   };
   const resetForm = useCallback(
     (newValues = {}, newErrors = {}, newIsValid = false) => {
@@ -44,7 +46,7 @@ const popupForm = () => {
       ...formErrors,
       ...newErrors,
     });
-    setIsFormValid(evt.checkValidity());
+    setIsFormValid(target.checkValidity());
   };
 
   return {

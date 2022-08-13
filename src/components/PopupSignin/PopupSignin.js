@@ -4,10 +4,7 @@ import Buttons from '../Buttons/Buttons';
 import popupForm from '../../hooks/popupform';
 
 const PopupSignin = ({
-  isVisible,
-  closePopup,
-  onFormSubmit,
-  switchToSignUp,
+  isVisible, closePopup, onFormSubmit, switchToSignUp,
 }) => {
   const {
     formValues,
