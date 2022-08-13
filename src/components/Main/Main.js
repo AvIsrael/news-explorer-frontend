@@ -1,38 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../Header/Header';
 import NewsCardList from '../NewsCardsList/NewsCardsList';
 import About from '../About/About';
 import Footer from '../Footer/Footer';
-import { cardsData } from '../../utils/data/data';
 
-const Main = ({ onSignInClick, onSignOutClick }) => {
-  const [newsData, setNewsData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setNewsData(cardsData);
-      setIsLoading(false);
-    }, 1500);
-  }, []);
-  return (
-    <>
-      <Header
-        onSignInClick={onSignInClick}
-        onSignOutClick={onSignOutClick}
+const Main = ({
+  lastSearch,
+  savedArticles,
+  shownResults,
+  onSearchSubmit,
+  onSignInClick,
+  onSignUpClick,
+  onSignOutClick,
+  onBookmarkClick,
+  onRemoveClick,
+  onLoadMoreClick,
+}) => (
+  <>
+    <Header
+      lastSearch={lastSearch}
+      onSearchSubmit={onSearchSubmit}
+      onSignInClick={onSignInClick}
+      onSignOutClick={onSignOutClick}
+    />
+    <main>
+      <NewsCardList
+        data={shownResults}
+        savedArticles={savedArticles}
+        isVisible={lastSearch.query !== undefined}
+        isLoading={lastSearch.isLoading}
+        isError={lastSearch.isError}
+        isSearchResults
+        onSignUpClick={onSignUpClick}
+        onBookmarkClick={onBookmarkClick}
+        onRemoveClick={onRemoveClick}
+        onLoadMoreClick={onLoadMoreClick}
       />
-      <main>
-        <NewsCardList
-          data={newsData}
-          isLoading={isLoading}
-          isSearchResults
-          onSignInClick={onSignInClick}
-          onLoadMoreClick={() => {}}
-        />
-        <About />
-      </main>
-      <Footer />
-    </>
-  );
-};
+      <About />
+    </main>
+    <Footer />
+  </>
+);
 
 export default Main;
