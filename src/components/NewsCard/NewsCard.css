@@ -104,6 +104,7 @@
 
 .news-card__action-button_type_bookmark-active {
     background-image: url('../../images/bookmark-marked.svg');
+    background-size: auto;
 }
 
 .news-card__action-button_type_bookmark-active.news-card__action-button:before {
