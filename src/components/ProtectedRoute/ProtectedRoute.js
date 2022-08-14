@@ -4,8 +4,11 @@ import CurrentUserContext from '../../context/CurrentUserContext';
 
 const ProtectedRoute = ({ children }) => {
   const currentUser = useContext(CurrentUserContext);
+  if (currentUser.isLoading || currentUser.isAuthRequired) {
+    return null;
+  }
   return currentUser.isLoggedIn ? children : (
-    <Navigate to="/" />
+    <Navigate to="/" state={{ openSignIn: true }} />
   );
 };
 

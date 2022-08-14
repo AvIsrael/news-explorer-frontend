@@ -1,14 +1,29 @@
 import React from 'react';
+import classNames from 'classnames';
 import './NewsCardsList.css';
 import Preloader from '../Preloader/Preloader';
 import NothingFound from '../NothingFound/NothingFound';
 import NewsCard from '../NewsCard/NewsCard';
+import NewsCardsListError from '../NewsCardsListError/NewsCardsListError';
 import Buttons from '../Buttons/Buttons';
 
 const NewsCardsList = ({
-  data, isLoading, isSearchResults = false, onSignInClick = () => {}, onLoadMoreClick = () => {},
+  data,
+  savedArticles = {},
+  isVisible = true,
+  isLoading = false,
+  isError = false,
+  isSearchResults = false,
+  onSignUpClick = () => {},
+  onBookmarkClick = () => {},
+  onRemoveClick = () => {},
+  onLoadMoreClick = undefined,
 }) => (
-  <section className="news-card-list">
+  <section className={classNames(
+    'news-card-list',
+    !isVisible && 'news-card-list_hidden',
+  )}
+  >
     <div className="news-card-list__container">
       {isLoading && (
       <Preloader>
@@ -19,6 +34,13 @@ const NewsCardsList = ({
                     }
       </Preloader>
       )}
+      {!isLoading && isError && (
+        <NewsCardsListError>
+          Sorry, something went wrong during the request.
+          There may be a connection issue or the server may be down.
+          Please try again later.
+        </NewsCardsListError>
+      )}
       {!isLoading && data.length === 0 && (
       <NothingFound>
         {
@@ -28,7 +50,7 @@ const NewsCardsList = ({
                     }
       </NothingFound>
       )}
-      {!isLoading && data.length > 0 && (
+      {!isLoading && !isError && data.length > 0 && (
       <>
         {isSearchResults && (
         <h2 className="news-card-list__title">
@@ -38,14 +60,21 @@ const NewsCardsList = ({
         <ul className="news-card-list__list">
           {data.map((cardData) => (
             <NewsCard
-              key={cardData.id}
-              cardData={cardData}
+              key={
+                isSearchResults
+                  ? cardData.link
+                  : cardData._id
+              }
+              data={cardData}
+              savedArticles={savedArticles}
               isSearchResults={isSearchResults}
-              onSignInClick={onSignInClick}
+              onSignUpClick={onSignUpClick}
+              onBookmarkClick={onBookmarkClick}
+              onRemoveClick={onRemoveClick}
             />
           ))}
         </ul>
-        {isSearchResults && (
+        {onLoadMoreClick && (
         <Buttons
           type="button"
           pattern="cards"

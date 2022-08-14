@@ -1,0 +1,37 @@
+.notify {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    gap: 16px;
+    align-items: center;
+    transform: scale(.75);
+    transition: all .25s linear;
+    opacity: 0;
+    z-index: 400;
+    margin: 16px;
+    border-radius: 8px;
+    background-color: rgb(255, 0, 0);
+    padding: 8px 16px;
+    pointer-events: none;
+}
+
+.notify_visible {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.notify__image {
+    width: 32px;
+    height: 32px;
+}
+
+.notify__description {
+    margin: 0;
+    line-height: 18px;
+    color: #fff;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+}

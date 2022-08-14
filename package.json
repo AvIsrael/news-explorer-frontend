@@ -21,7 +21,8 @@
     "eject": "react-scripts eject",
     "jest": "jest",
     "lint": "eslint src/**/*.js",
-    "lintfix": "eslint --fix --ext .js,.jsx ."
+    "lintfix": "eslint --fix --ext .js,.jsx .",
+    "deployserver": "npm run build && scp -r ./build/* stepovoyas@avi.news.explorer.students.nomoredomainssbs.ru:~/news-explorer-frontend"
   },
   "eslintConfig": {
     "extends": [
